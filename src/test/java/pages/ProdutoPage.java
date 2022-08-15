@@ -1,4 +1,7 @@
+package pages;
 import org.openqa.selenium.WebDriver;
+
+import utils.DSL;
 
 public class ProdutoPage {
 
@@ -20,8 +23,10 @@ private DSL dsl;
 		dsl.escrever("shopping_cart_link");
 	}
 	
-	public void clicaCheckout() {
-		dsl.clicaBotao("checkout");
-	}
+
 	
+	public void validarProdutoPage() throws InterruptedException {
+		dsl.validarPorXpath("//span[text() = 'Products']");
+	}
+
 }

@@ -1,3 +1,5 @@
+package utils; 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +15,12 @@ public class DSL {
 	}
 
 	public void escreve(String id_name, String texto) {
-		driver.findElement(By.id(id_name)).sendKeys(texto);
+		try {
+			driver.findElement(By.id(id_name)).sendKeys(texto);
+			Assert.assertTrue(true);
+		} catch(Exception e) {
+			Assert.assertTrue("Não foi possivel encontrar o elemento com id: " + id_name, false);
+		}
 	}
 	
 	public void clicaBotao(String id) {
@@ -28,5 +35,16 @@ public class DSL {
 	
 	public void escrever(String id) {
 		driver.findElement(By.className(id)).click();
+	}
+
+	public void validarPorXpath(String xpath) throws InterruptedException {
+		Thread.sleep(1000);
+		try {
+			 this.driver.findElement(By.xpath(xpath)).isDisplayed();
+			 Assert.assertTrue(true);
+			
+		} catch (Exception e) {
+			Assert.assertTrue("Não foi possivel encontrar o elemento: "+ xpath, false);
+		}
 	}
 }

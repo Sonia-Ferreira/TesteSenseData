@@ -1,4 +1,8 @@
+package pages;
 import org.openqa.selenium.WebDriver;
+
+import utils.DSL;
+
 
 public class LoginPage {
 
@@ -20,10 +24,14 @@ public class LoginPage {
 		dsl.clicaBotao("login-button");
 	}
 	
-	
-	
 	public void clicaCheckout () {
 		dsl.clicaBotao("checkout");
+	}
+	
+	public void realizarLogin() {
+		setNome("standard_user");
+		setSenha("secret_sauce");
+		clicaLogin();
 	}
 
 }

@@ -1,4 +1,7 @@
+package pages;
 import org.openqa.selenium.WebDriver;
+
+import utils.DSL;
 
 
 public class CheckoutPage {
@@ -29,7 +32,11 @@ public class CheckoutPage {
 		dsl.clicaBotao("finish");
 	}
 	
-	public void clicaBackHome() {
-		dsl.clicaBotao("back-to-products");
+	public void validaCheckoutPage() throws InterruptedException {
+		dsl.validarPorXpath("//span[text() = 'Checkout: Your Information']");
+	}
+
+	public void validaCheckoutComplete() throws InterruptedException {
+		dsl.validarPorXpath("//span[text() = 'Checkout: Complete!']");
 	}
 }
